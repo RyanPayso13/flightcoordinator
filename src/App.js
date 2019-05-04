@@ -1,5 +1,5 @@
 import React from 'react';
-import AircraftListContainer from './containers/AircraftListContainer';
+import AircraftListContainer from './containers/AircraftListContainer/AircraftListContainer';
 
 const App = () => (
   <div className="ui three column grid container">

@@ -7,8 +7,8 @@ describe('Reducers', () => {
 
     it('should return the initial state', () => {
         expect(reducer(undefined, {})).toEqual({
-            aircraft: API_AIRCRAFT_LIST, 
-            flights: API_FLIGHTS_LIST
+            aircraft: [...API_AIRCRAFT_LIST], 
+            flights: [...API_FLIGHTS_LIST]
         });
     });
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import AircraftList from '../components/AircraftList/AircraftList';
+import AircraftList from '../../components/AircraftList/AircraftList';
 
 const mapStateToProps = state => {
   return {

@@ -3,8 +3,8 @@ import { API_AIRCRAFT_LIST } from '../api/aircraft';
 import { API_FLIGHTS_LIST } from '../api/flights';
 
 const initialState = {
-    aircraft: API_AIRCRAFT_LIST,
-    flights: API_FLIGHTS_LIST
+    aircraft: [...API_AIRCRAFT_LIST],
+    flights: [...API_FLIGHTS_LIST]
 };
 
 function flightCoordinatorApp(state = initialState, action) {

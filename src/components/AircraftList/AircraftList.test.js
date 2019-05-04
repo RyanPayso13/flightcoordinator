@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16'
+import Adapter from 'enzyme-adapter-react-16';
 import AircraftList from './AircraftList';
 import { API_AIRCRAFT_LIST } from '../../api/aircraft';
 
@@ -8,7 +8,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 function setup() {
     const props = {
-        aircraftList: API_AIRCRAFT_LIST
+        aircraftList: [...API_AIRCRAFT_LIST]
     };
     const enzymeWrapper = shallow(<AircraftList {...props} />)
 
