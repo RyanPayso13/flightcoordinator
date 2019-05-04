@@ -8,7 +8,8 @@ describe('Reducers', () => {
     it('should return the initial state', () => {
         expect(reducer(undefined, {})).toEqual({
             aircraft: [...API_AIRCRAFT_LIST], 
-            flights: [...API_FLIGHTS_LIST]
+            flights: [...API_FLIGHTS_LIST],
+            currentAircraft: '',
         });
     });
 
@@ -36,6 +37,28 @@ describe('Reducers', () => {
                 payload: aircraftPayload
             })).toEqual({
                 aircraft: aircraftPayload
+            });
+        });
+
+    });
+
+    describe('SET_CURRENT_AIRCRAFT', () => {
+
+        it('should handle an empty string', () => {
+            expect(reducer([], {
+                type: actions.SET_CURRENT_AIRCRAFT,
+                payload: ''
+            })).toEqual({
+                currentAircraft: ''
+            });
+        });
+
+        it('should handle a non-empty string', () => {
+            expect(reducer([], {
+                type: actions.SET_CURRENT_AIRCRAFT,
+                payload: 'FOOBARPLANE'
+            })).toEqual({
+                currentAircraft: 'FOOBARPLANE'
             });
         });
 

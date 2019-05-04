@@ -1,10 +1,14 @@
-import { FETCH_AIRCRAFT } from '../actions/actions';
+import { 
+    FETCH_AIRCRAFT, 
+    SET_CURRENT_AIRCRAFT 
+} from '../actions/actions';
 import { API_AIRCRAFT_LIST } from '../api/aircraft';
 import { API_FLIGHTS_LIST } from '../api/flights';
 
 const initialState = {
     aircraft: [...API_AIRCRAFT_LIST],
-    flights: [...API_FLIGHTS_LIST]
+    flights: [...API_FLIGHTS_LIST],
+    currentAircraft: '',
 };
 
 function flightCoordinatorApp(state = initialState, action) {
@@ -15,6 +19,10 @@ function flightCoordinatorApp(state = initialState, action) {
                     ...action.payload
                 ],
             });
+        case SET_CURRENT_AIRCRAFT:
+        return Object.assign({}, state, {
+            currentAircraft: action.payload
+        });
     default:
         return state;
     };

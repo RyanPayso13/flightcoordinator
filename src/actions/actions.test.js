@@ -12,4 +12,13 @@ describe('Actions', () => {
         expect(actions.fetchAircraft(payload)).toEqual(expectedAction);
     });
 
+    it('should create an action to set the current aircraft', () => {
+        const payload = 'GABCD';
+        const expectedAction = {
+            type: actions.FETCH_AIRCRAFT,
+            payload
+        };
+        expect(actions.fetchAircraft(payload)).toEqual(expectedAction);
+    });
+
 });
