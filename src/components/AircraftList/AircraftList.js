@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Aircraft from '../Aircraft/Aircraft';
 
 const AircraftList = ({ aircraftList }) => (
-    <div class="ui relaxed celled list">
+    <div className="ui relaxed celled list">
         {aircraftList.map((el, index) => (
             <Aircraft key={index} {...el} />
         ))}

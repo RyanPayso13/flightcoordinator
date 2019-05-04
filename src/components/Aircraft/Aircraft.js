@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Aircraft = ({ ident, type, base }) => (
-    <div class="item">
-        <i class="large plane middle aligned icon"></i>
-        <div class="content">
-            <div class="header">{ident}</div>
-            <div class="description">{type}</div>
-            <div class="description">{base}</div>
+    <div className="item">
+        <i className="large plane middle aligned icon"></i>
+        <div className="content">
+            <div className="header">{ident}</div>
+            <div className="description">{type}</div>
+            <div className="description">{base}</div>
         </div>
     </div>
 );
@@ -15,7 +15,7 @@ const Aircraft = ({ ident, type, base }) => (
 Aircraft.propTypes = {
     ident: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    base: PropTypes.string.isRequired,
+    base: PropTypes.string.isRequired
 };
 
 export default Aircraft;
