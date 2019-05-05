@@ -9,7 +9,8 @@ function setup() {
     const props = {
         ident: 'GABCD',
         type: 'A320',
-        base: 'EGKK'
+        base: 'EGKK',
+        handleOnClick: jest.fn()
     };
     const enzymeWrapper = shallow(<Aircraft {...props} />)
 
@@ -31,6 +32,10 @@ describe('Aircraft Component', () => {
         expect(description.length).toEqual(2);
         expect(description.at(0).text()).toEqual('A320');
         expect(description.at(1).text()).toEqual('EGKK');
+
+      });
+
+      it('should dispatch on click', () => {
 
       });
 

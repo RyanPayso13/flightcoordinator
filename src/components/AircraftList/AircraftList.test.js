@@ -8,7 +8,8 @@ Enzyme.configure({ adapter: new Adapter() });
 
 function setup() {
     const props = {
-        aircraftList: [...API_AIRCRAFT_LIST]
+        aircraftList: [...API_AIRCRAFT_LIST],
+        setCurrentAircraft: jest.fn()
     };
     const enzymeWrapper = shallow(<AircraftList {...props} />)
 
@@ -35,6 +36,7 @@ describe('AircraftList Component', () => {
         expect(AircraftProps.type).toEqual('A320');
         expect(AircraftProps.economySeats).toEqual(186);
         expect(AircraftProps.base).toEqual('EGKK');
+        expect(AircraftProps.handleOnClick).toBeDefined();
     });
 
 });

@@ -20,9 +20,9 @@ function flightCoordinatorApp(state = initialState, action) {
                 ],
             });
         case SET_CURRENT_AIRCRAFT:
-        return Object.assign({}, state, {
-            currentAircraft: action.payload
-        });
+            return Object.assign({}, state, {
+                currentAircraft: action.payload
+            });
     default:
         return state;
     };
