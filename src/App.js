@@ -1,5 +1,6 @@
 import React from 'react';
 import AircraftListContainer from './containers/AircraftListContainer/AircraftListContainer';
+import CurrentAircraftContainer from './containers/CurrentAircraftContainer/CurrentAircraftContainer';
 
 const App = () => (
   <div className="ui three column grid container">
@@ -8,7 +9,7 @@ const App = () => (
         <AircraftListContainer />
     </div>
     <div className="column">
-      <h3 className="ui top attached header">Rotation</h3>
+      <h3 className="ui top attached header">Rotation: <CurrentAircraftContainer /></h3>
     </div>
     <div className="column">
       <h3 className="ui top attached header">Flights</h3>
