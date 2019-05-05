@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16'
+import Adapter from 'enzyme-adapter-react-16';
 import Aircraft from './Aircraft';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -23,7 +23,6 @@ function setup() {
 describe('Aircraft Component', () => {
 
     it('should render self', () => {
-
         const { enzymeWrapper } = setup()
         const header = enzymeWrapper.find('.header');
         const description = enzymeWrapper.find('.description');
@@ -32,7 +31,6 @@ describe('Aircraft Component', () => {
         expect(description.length).toEqual(2);
         expect(description.at(0).text()).toEqual('A320');
         expect(description.at(1).text()).toEqual('EGKK');
-
       });
 
       it('should dispatch on click', () => {

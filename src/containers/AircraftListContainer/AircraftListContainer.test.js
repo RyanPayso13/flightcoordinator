@@ -29,6 +29,7 @@ describe('AircraftList container', () => {
         expect(props).not.toBe(null);
     });
 
+    // How to write this test???
     // it('should set the current aircraft', () => {
     //     enzymeWrapper.simulate('SET_CURRENT_AIRCRAFT');
     //     const actions = store.getActions();
