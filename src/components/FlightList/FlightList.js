@@ -21,8 +21,8 @@ FlightList.propTypes = {
             origin: PropTypes.string.isRequired,
             destination: PropTypes.string.isRequired
         }).isRequired
-  ).isRequired,
-  scheduleFlight: PropTypes.func.isRequired
+  ),
+  scheduleFlight: PropTypes.func
 };
 
 export default FlightList;

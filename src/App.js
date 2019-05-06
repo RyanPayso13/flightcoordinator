@@ -11,7 +11,9 @@ const App = () => (
         <AircraftListContainer />
     </div>
     <div className="column">
-      <h3 className="ui top attached header">Rotation: <CurrentAircraftContainer /></h3>
+      <h3 className="ui top attached header">
+        Rotation: <CurrentAircraftContainer />
+      </h3>
       <ScheduleListContainer />
     </div>
     <div className="column">

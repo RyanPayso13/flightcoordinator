@@ -33,8 +33,4 @@ describe('Aircraft Component', () => {
         expect(description.at(1).text()).toEqual('EGKK');
       });
 
-      it('should dispatch on click', () => {
-
-      });
-
 });
