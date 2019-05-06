@@ -89,7 +89,7 @@ describe('Reducers', () => {
 
     });
 
-    describe('SCHEDULE_FLIGHT', () => {
+    describe('ADD_FLIGHT', () => {
 
         const flightPayload = {
             "id":"AS9999",
@@ -101,18 +101,54 @@ describe('Reducers', () => {
             "destination":"LFSB"
         };
 
-        it('should schedule a flight to an empty schedule', () => {
-            expect(reducer([], {
-                type: actions.SCHEDULE_FLIGHT,
+        it('should add a flight to an empty schedule', () => {
+            expect(reducer({
+                flightSchedule: []
+            }, {
+                type: actions.ADD_FLIGHT,
                 payload: flightPayload
-            })).toEqual([flightPayload]);
+            })).toEqual({
+                flightSchedule: [flightPayload]
+            });
         });     
 
-        it('should schedule a flight to an existing schedule', () => {
-            expect(reducer([...API_FLIGHTS_LIST], {
-                type: actions.SCHEDULE_FLIGHT,
+        it('should add a flight to an existing schedule', () => {
+            expect(reducer({
+                flightSchedule: [...API_FLIGHTS_LIST]
+            }, {
+                type: actions.ADD_FLIGHT,
                 payload: flightPayload
-            })).toEqual([...API_FLIGHTS_LIST, flightPayload]);
+            })).toEqual({
+                flightSchedule: [...API_FLIGHTS_LIST, flightPayload]
+            });
+        });
+
+    });
+
+    describe('DELETE_FLIGHT', () => {
+
+        it('should delete a flight', () => {
+            const payload = 'AS1043';
+            expect(reducer({
+                flights: [...API_FLIGHTS_LIST]
+            }, {
+                type: actions.DELETE_FLIGHT,
+                payload: payload
+            })).toEqual({
+                flights: [...API_FLIGHTS_LIST.filter(flight => flight.id !== payload)]
+            });
+        });
+
+        it('should not delete a flight', () => {
+            const payload = 'FOOBAR';
+            expect(reducer({
+                flights: [...API_FLIGHTS_LIST]
+            }, {
+                type: actions.DELETE_FLIGHT,
+                payload: payload
+            })).toEqual({
+                flights: [...API_FLIGHTS_LIST]
+            });
         });
 
     });
