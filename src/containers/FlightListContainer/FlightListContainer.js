@@ -14,7 +14,7 @@ const getAvailableFlights = (flights, flight) => {
       // flight cannot teleport
       // flight must be 40 minutes in the future
       return f.origin === flight.destination && 
-             f.departuretime > (flight.arrivaltime + turnaroundTime);
+             f.departuretime >= (flight.arrivaltime + turnaroundTime);
     });
   }
   return flights;
