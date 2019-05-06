@@ -3,6 +3,8 @@ export const FETCH_AIRCRAFT = 'FETCH_AIRCRAFT';
 export const SET_CURRENT_AIRCRAFT = 'SET_CURRENT_AIRCRAFT';
 export const FETCH_FLIGHTS = 'FETCH_FLIGHTS';
 export const SCHEDULE_FLIGHT = 'SCHEDULE_FLIGHT';
+export const DELETE_FLIGHT = 'DELETE_FLIGHT';
+export const ADD_FLIGHT = 'ADD_FLIGHT';
 
 // action creators
 export function fetchAircraft(data = []) {
@@ -26,9 +28,16 @@ export function fetchFlights(data = []) {
     }
 }
 
-export function scheduleFlight(flight = {}) {
+export function deleteFlight(id = '') {
     return {
-        type: SCHEDULE_FLIGHT,
+        type: DELETE_FLIGHT,
+        payload: id
+    }
+}
+
+export function addFlight(flight = {}) {
+    return {
+        type: ADD_FLIGHT,
         payload: flight
     }
 }

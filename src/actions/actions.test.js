@@ -31,7 +31,16 @@ describe('Actions', () => {
         expect(actions.fetchFlights(payload)).toEqual(expectedAction);
     });
 
-    it('should create an action to schedule a flight from the flight list', () => {
+    it('should create an action to delete a flight', () => {
+        const payload = 'AS001';
+        const expectedAction = {
+            type: actions.DELETE_FLIGHT,
+            payload
+        };
+        expect(actions.deleteFlight(payload)).toEqual(expectedAction);
+    });
+
+    it('should create an action to add a flight', () => {
         const payload = {
             "id":"AS1001",
             "departuretime":21600,
@@ -42,10 +51,10 @@ describe('Actions', () => {
             "destination":"LFMN"
         };
         const expectedAction = {
-            type: actions.SCHEDULE_FLIGHT,
+            type: actions.ADD_FLIGHT,
             payload
         };
-        expect(actions.scheduleFlight(payload)).toEqual(expectedAction);
+        expect(actions.addFlight(payload)).toEqual(expectedAction);
     });
 
 });

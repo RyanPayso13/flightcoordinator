@@ -2,7 +2,8 @@ import {
     FETCH_AIRCRAFT, 
     SET_CURRENT_AIRCRAFT, 
     FETCH_FLIGHTS,
-    SCHEDULE_FLIGHT
+    ADD_FLIGHT,
+    DELETE_FLIGHT
 } from '../actions/actions';
 import { API_AIRCRAFT_LIST } from '../api/aircraft';
 
@@ -31,11 +32,18 @@ function flightCoordinatorApp(state = initialState, action) {
                     ...action.payload
                 ],
             });
-        case SCHEDULE_FLIGHT: 
-            const newItem = action.payload;
-            const newState = state.slice();
-            newState.push(newItem);
-            return newState;         
+        case ADD_FLIGHT:
+            return Object.assign({}, state, {
+                flightSchedule: [
+                    ...state.flightSchedule, {...action.payload}
+                ],
+            }); 
+        case DELETE_FLIGHT:
+            return Object.assign({}, state, {
+                flights: [
+                    ...state.flights.filter(flight => flight.id !== action.payload)
+                ],
+            });
     default:
         return state;
     };
