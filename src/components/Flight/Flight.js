@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Flight.css';
 
 const Flight = ({ 
     id, 
@@ -21,12 +22,21 @@ const Flight = ({
             arrivaltime,
             readable_arrival
         }) : null }}>
-        <div className="content">
+        <div className="content flight">
             <div className="header">Flight: {id}</div>
-            <div className="description">{origin}</div>
-            <div className="description">{readable_departure}</div>
-            <div className="description">{destination}</div>
-            <div className="description">{readable_arrival}</div>
+            <div className="details">
+                <div>
+                    <p className="description">{origin}</p>
+                    <p className="description">{readable_departure}</p>
+                </div>
+                <div>
+                    <i className="large arrow right icon"></i>
+                </div>
+                <div>
+                    <p className="description">{destination}</p>
+                    <p className="description">{readable_arrival}</p>
+                </div>
+            </div>
         </div>
     </div>
 );

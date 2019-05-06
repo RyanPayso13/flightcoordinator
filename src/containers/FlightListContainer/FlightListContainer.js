@@ -12,7 +12,7 @@ const getAvailableFlights = (flights, flight) => {
   if (flight !== null) {
     return flights.filter((f) => {
       // flight cannot teleport
-      // flight must be 40 minutes in the future
+      // flight must be at least 40 minutes in the future
       return f.origin === flight.destination && 
              f.departuretime >= (flight.arrivaltime + turnaroundTime);
     });
