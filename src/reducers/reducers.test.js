@@ -11,7 +11,7 @@ describe('Reducers', () => {
             currentAircraft: '',
             flights: [],
             flightSchedule: [],
-            lastScheduledFlight: {}
+            lastFlight: null
         });
     });
 
@@ -152,6 +152,42 @@ describe('Reducers', () => {
             });
         });
 
+    });
+
+    describe('SET_LAST_FLIGHT', () => {
+
+        it('should handle null', () => {
+            expect(reducer({
+                lastFlight: null
+            }, {
+                type: actions.SET_LAST_FLIGHT,
+                payload: null
+            })).toEqual({
+                lastFlight: null
+            });
+        });
+
+        it('should handle a flight object', () => {
+
+            const flightPayload = {
+                "id":"AS9999",
+                "departuretime":33300,
+                "arrivaltime":42900,
+                "readable_departure":"09:15",
+                "readable_arrival":"11:55",
+                "origin":"LEMG",
+                "destination":"LFSB"
+            };
+
+            expect(reducer({
+                lastFlight: null
+            }, {
+                type: actions.SET_LAST_FLIGHT,
+                payload: flightPayload
+            })).toEqual({
+                lastFlight: flightPayload
+            });
+        });
     });
 
 });

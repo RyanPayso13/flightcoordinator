@@ -3,7 +3,8 @@ import {
     SET_CURRENT_AIRCRAFT, 
     FETCH_FLIGHTS,
     ADD_FLIGHT,
-    DELETE_FLIGHT
+    DELETE_FLIGHT,
+    SET_LAST_FLIGHT
 } from '../actions/actions';
 import { API_AIRCRAFT_LIST } from '../api/aircraft';
 
@@ -12,7 +13,7 @@ const initialState = {
     currentAircraft: '',
     flights: [],
     flightSchedule: [],
-    lastScheduledFlight: {}
+    lastFlight: null
 };
 
 function flightCoordinatorApp(state = initialState, action) {
@@ -42,6 +43,11 @@ function flightCoordinatorApp(state = initialState, action) {
                 ...state,
                 flights: [...state.flights.filter(flight => flight.id !== action.payload)]
               };
+        case SET_LAST_FLIGHT:
+              return {
+                  ...state,
+                  lastFlight: action.payload
+              }
     default:
         return state;
     };
