@@ -17,33 +17,30 @@ const initialState = {
 function flightCoordinatorApp(state = initialState, action) {
     switch (action.type) {
         case FETCH_AIRCRAFT:
-            return Object.assign({}, state, {
-                aircraft: [
-                    ...action.payload
-                ],
-            });
+        return {
+            ...state,
+            aircraft: [...action.payload]
+          };
         case SET_CURRENT_AIRCRAFT:
-            return Object.assign({}, state, {
-                currentAircraft: action.payload
-            });
+          return {
+              ...state,
+              currentAircraft: action.payload
+          };
         case FETCH_FLIGHTS: 
-            return Object.assign({}, state, {
-                flights: [
-                    ...action.payload
-                ],
-            });
+            return {
+                ...state,
+                flights: [...action.payload]
+            };
         case ADD_FLIGHT:
-            return Object.assign({}, state, {
-                flightSchedule: [
-                    ...state.flightSchedule, {...action.payload}
-                ],
-            }); 
+            return {
+                ...state,
+                flightSchedule: [...state.flightSchedule, {...action.payload}]
+            };
         case DELETE_FLIGHT:
-            return Object.assign({}, state, {
-                flights: [
-                    ...state.flights.filter(flight => flight.id !== action.payload)
-                ],
-            });
+            return {
+                ...state,
+                flights: [...state.flights.filter(flight => flight.id !== action.payload)]
+              };
     default:
         return state;
     };
