@@ -11,7 +11,8 @@ const initialState = {
     aircraft: [...API_AIRCRAFT_LIST],
     currentAircraft: '',
     flights: [],
-    flightSchedule: []
+    flightSchedule: [],
+    lastScheduledFlight: {}
 };
 
 function flightCoordinatorApp(state = initialState, action) {

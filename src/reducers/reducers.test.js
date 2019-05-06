@@ -10,7 +10,8 @@ describe('Reducers', () => {
             aircraft: [...API_AIRCRAFT_LIST], 
             currentAircraft: '',
             flights: [],
-            flightSchedule: []
+            flightSchedule: [],
+            lastScheduledFlight: {}
         });
     });
 

@@ -57,4 +57,21 @@ describe('Actions', () => {
         expect(actions.addFlight(payload)).toEqual(expectedAction);
     });
 
+    it('should create an action to set the lat scheduled flight', () => {
+        const payload = {
+            "id":"AS1001",
+            "departuretime":21600,
+            "arrivaltime":26100,
+            "readable_departure":"06:00",
+            "readable_arrival":"07:15",
+            "origin":"LFSB",
+            "destination":"LFMN"
+        };
+        const expectedAction = {
+            type: actions.SET_LAST_SCHEDULED_FLIGHT,
+            payload
+        };
+        expect(actions.setLastScheduledFlight(payload)).toEqual(expectedAction);
+    });
+
 });
